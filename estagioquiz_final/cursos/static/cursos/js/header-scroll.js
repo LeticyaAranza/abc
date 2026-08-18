@@ -1,33 +1,13 @@
-const header = document.getElementById("header");
-const menuToggle = document.getElementById("menu-toggle");
-const menu = document.getElementById("menu");
+// header-scroll.js — esconde o header ao rolar a página para baixo
+// Renomeado de static.js. Corrigido: base.html agora tem id="header" no <header>,
+// então este script encontra o elemento corretamente em todas as páginas.
 
-let ultimaPosicao = window.scrollY;
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("header");
 
-window.addEventListener("scroll", () => {
-    const posicaoAtual = window.scrollY;
+    if (!header) return;
 
-    if (posicaoAtual > ultimaPosicao && posicaoAtual > 100) {
-        header.classList.add("hide");
-    } else {
-        header.classList.remove("hide");
-    }
-
-    ultimaPosicao = posicaoAtual;
+    window.addEventListener("scroll", function () {
+        header.classList.toggle("hide", window.scrollY > 100);
+    });
 });
-
-if (menuToggle && menu) {
-    menuToggle.addEventListener("click", () => {
-        const aberto = menu.classList.toggle("open");
-        menuToggle.setAttribute("aria-expanded", aberto ? "true" : "false");
-        menuToggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
-    });
-
-    menu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("open");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Abrir menu");
-        });
-    });
-}
