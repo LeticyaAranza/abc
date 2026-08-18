@@ -48,13 +48,11 @@ const descricao = {
 
 
 const formulario = document.getElementById("quiz-form");
-
 const nextBtn = document.getElementById("next-btn");
 const restartBtn = document.getElementById("restart-btn");
 
 nextBtn.addEventListener("click", proximaQuestao);
 restartBtn.addEventListener("click", reiniciarQuiz);
-
 
 // Ativa o botão quando uma alternativa for selecionada
 formulario.addEventListener("change", () => {
@@ -97,7 +95,6 @@ function proximaQuestao() {
                 `.container-questao[data-question="${QuestaoAtual}"]`
             )
             .classList.add("active");
-
 
         document.getElementById("next-btn").disabled = true;
 
@@ -220,7 +217,6 @@ function mostrarResultado() {
     }
 
     formulario.style.display = "none";
-//mostra o resultado
     document.getElementById("container-resultado").style.display = "block";
 
     document.getElementById("result-title").innerText = melhorArea;
@@ -259,6 +255,5 @@ function reiniciarQuiz() {
 
     atualizarProgresso();
 }
-
 
 atualizarProgresso();
