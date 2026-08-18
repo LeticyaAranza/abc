@@ -18,21 +18,3 @@
     min-height: 300px;
     padding: 20px;
 }
-
-@media (max-width: 768px) {
-    .chatbot {
-        padding: 38px 18px;
-    }
-
-    .chatbot h2 {
-        font-size: 25px;
-        line-height: 1.25;
-    }
-
-    .chatbot-janela {
-        width: 100%;
-        min-height: 260px;
-        padding: 14px;
-        border-radius: 12px;
-    }
-}
